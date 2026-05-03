@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chadrack Ndalamba — Full-Stack Engineer</title>
+  <meta name="description" content="Full-Stack Software Engineer crafting premium digital experiences. React, Node.js, Java, Python." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LOADER
+  ═══════════════════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">Mr. Chad</div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CURSOR
+  ═══════════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SCROLL PROGRESS
+  ═══════════════════════════════════════════ -->
+  <div id="scroll-progress"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-availability">
+        <span class="badge-dot"></span>
+        Available for opportunities
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="theme-icon"></i>
+        </button>
+        <a href="https://final-portfolio-online.vercel.app/cv/latest.pdf" class="btn-nav" target="_blank">
+          Resume <i class="fas fa-arrow-up-right-from-square"></i>
+        </a>
+        <button id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu">
+      <ul>
+        <li><a href="#home" class="mobile-link">Home</a></li>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#projects" class="mobile-link">Projects</a></li>
+        <li><a href="#experience" class="mobile-link">Experience</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO — Full-bleed photo background
+  ═══════════════════════════════════════════ -->
+  <section id="home" class="hero">
+
+    <!-- ── Full-screen background photo ── -->
+    <div class="hero-bg-photo">
+      <!--
+        This is YOUR photo from the current portfolio.
+        To swap it: replace the src URL with any direct image link,
+        or host the file and update the path.
+      -->
+      <img
+        src="https://final-portfolio-online.vercel.app/images/IMG_8295.jpg"
+        alt=""
+        class="hero-bg-img"
+        id="hero-bg-img"
+        loading="eager"
+      />
+      <!-- Dark overlay — keeps text readable -->
+      <div class="hero-overlay"></div>
+      <!-- Subtle vignette + bottom fade -->
+      <div class="hero-vignette"></div>
+      <!-- Particle canvas on top -->
+      <canvas id="hero-canvas"></canvas>
+    </div>
+
+    <!-- ── Centered text content ── -->
+    <div class="hero-content">
+
+      <!-- Available badge -->
+      <!-- <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+        <span class="badge-dot"></span>
+        Available for opportunities
+      </div> -->
+
+      <!-- Greeting + name -->
+      <p class="hero-greeting" data-aos="fade-up" data-aos-delay="300">Hello, I'm</p>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="380">
+        Chadrack Ndalamba
+      </h1>
+
+      <!-- Typed role -->
+      <div class="hero-role" data-aos="fade-up" data-aos-delay="460">
+        <span class="role-prefix">A </span>
+        <span id="typed-text" class="typed"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+
+      <!-- CTA buttons -->
+      <div class="hero-cta" data-aos="fade-up" data-aos-delay="560">
+        <a href="#projects" class="btn-primary">
+          <span>View My Work</span>
+          <i class="fas fa-arrow-down"></i>
+        </a>
+        <a href="#contact" class="btn-hero-ghost">
+          <span>Let's Talk</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="660">
+        <div class="stat">
+          <span class="stat-num" data-count="3">0</span><span>+</span>
+          <span class="stat-label">Years Exp.</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="8">0</span><span>+</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="5">0</span><span>+</span>
+          <span class="stat-label">Tech Stacks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" data-aos="fade-up" data-aos-delay="800">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">01 — About</span>
+        <h2 class="section-title">Code, Coffee<br/>&amp; Big Dreams</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text" data-aos="fade-right" data-aos-delay="100">
+          <p class="about-lead">
+            Hey! I'm Chadrack — a Full-Stack Engineer from Johannesburg who turns ambitious ideas into polished digital products.
+          </p>
+          <p>
+            I'm an Information Technology graduate, and I've trained at <strong>ALX Africa</strong>, collaborated at <strong>mLab Southern Africa</strong>, shipped production code at <strong>CAPACITI</strong>, and currently build scalable applications at <strong>Talent Match Africa</strong>. My work spans fintech dashboards, e-commerce platforms, health apps, and AI-powered tools.
+          </p>
+          <p>
+            I care deeply about the craft — clean architecture, intuitive UX, and code that's a pleasure to maintain. Whether it's a pixel-perfect UI or a robust REST API, I commit fully.
+          </p>
+          <div class="about-links">
+            <a href="#contact" class="btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
+            <a href="https://final-portfolio-online.vercel.app/cv/latest.pdf" class="btn-ghost" target="_blank">Download CV <i class="fas fa-download"></i></a>
+          </div>
+        </div>
+
+        <div class="about-visual" data-aos="fade-left" data-aos-delay="200">
+          <div class="about-card-wrap">
+            <img src="images/b.jpg" alt="Chadrack Ndalamba" class="about-img-rect" />
+
+            <!-- Card overlaid on photo -->
+            <!-- <div class="about-card">
+              <div class="about-avatar">
+                <div class="avatar-placeholder">CN</div>
+                <div class="avatar-ring"></div>
+              </div>
+              <div class="about-card-info">
+                <span class="card-name">Chadrack Ndalamba</span>
+                <span class="card-role">Full-Stack Engineer</span>
+                <span class="card-location"><i class="fas fa-location-dot"></i> Johannesburg, ZA</span>
+              </div>
+            </div> -->
+
+            <!-- Floating tags -->
+            <!-- <div class="float-tag tag-1"><i class="fab fa-react"></i> React</div>
+            <div class="float-tag tag-2"><i class="fab fa-node-js"></i> Node.js</div>
+            <div class="float-tag tag-3"><i class="fab fa-java"></i> Java</div>
+            <div class="float-tag tag-4">🚀 ALX Grad</div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="skills-section" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="skills-title">Tech Stack</h3>
+        <div class="skills-grid">
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+            <span class="skill-cat-label">Frontend</span>
+            <div class="skill-pills">
+              <span class="pill"><i class="fab fa-react"></i> React.js</span>
+              <span class="pill"><i class="fab fa-js"></i> JavaScript</span>
+              <span class="pill"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="pill"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="pill">⚛️ React Native</span>
+              <span class="pill">🔄 Redux</span>
+            </div>
+          </div>
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+            <span class="skill-cat-label">Backend</span>
+            <div class="skill-pills">
+              <span class="pill"><i class="fab fa-node-js"></i> Node.js</span>
+              <span class="pill"><i class="fab fa-java"></i> Java</span>
+              <span class="pill"><i class="fab fa-python"></i> Python</span>
+              <span class="pill">🔌 REST APIs</span>
+              <span class="pill">🔐 Auth/JWT</span>
+            </div>
+          </div>
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+            <span class="skill-cat-label">Tools & Cloud</span>
+            <div class="skill-pills">
+              <span class="pill"><i class="fab fa-git-alt"></i> Git</span>
+              <span class="pill"><i class="fab fa-github"></i> GitHub</span>
+              <span class="pill">🗄️ MongoDB</span>
+              <span class="pill">🐘 PostgreSQL</span>
+              <span class="pill">☁️ Vercel</span>
+              <span class="pill">🐳 Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">02 — Projects</span>
+        <h2 class="section-title">Selected<br/>Work</h2>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="react">React</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="ai">AI / Data</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card" data-category="react fullstack" data-aos="fade-up" data-aos-delay="50">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/fintech/1.png" alt="FinTech Platform" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://weblynx-projects.github.io/FinTec/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Weblynx-projects/FinTec" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">FinTech</span>
+            </div>
+            <h3 class="project-title">FinTech Platform</h3>
+            <p class="project-desc">Financial analytics platform with real-time dashboards, transaction tracking, and dynamic data visualization.</p>
+            <div class="project-footer">
+              <a href="https://weblynx-projects.github.io/FinTec/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">01</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-category="react" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/mov/Screenshot 2025-03-22 155930.png" alt="Movie Database" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://movie-online-roan.vercel.app/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Software-Development-Capaciti/Movie-database.git" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">API</span>
+              <span class="tag">UI/UX</span>
+            </div>
+            <h3 class="project-title">Movie Database</h3>
+            <p class="project-desc">Sleek entertainment app with search, filters, ratings, and personalized watchlists powered by a live movie API.</p>
+            <div class="project-footer">
+              <a href="https://movie-online-roan.vercel.app/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">02</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card featured" data-category="fullstack" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/bank/Presentation1.jpg" alt="Bank Management" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://banking-frontend-j7ik.onrender.com/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Software-Development-Capaciti/banking-frontend.git" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+            <div class="featured-badge">Featured</div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Java</span>
+              <span class="tag">Full-Stack</span>
+            </div>
+            <h3 class="project-title">Bank Management System</h3>
+            <p class="project-desc">End-to-end banking app with account management, transfers, transaction history, and secure authentication flows.</p>
+            <div class="project-footer">
+              <a href="https://banking-frontend-j7ik.onrender.com/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">03</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-category="react" data-aos="fade-up" data-aos-delay="50">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/fashion/1.png" alt="Luxury Fashion Store" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://weblynx-projects.github.io/E-commerce/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Weblynx-projects/E-commerce" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">E-Commerce</span>
+            </div>
+            <h3 class="project-title">Luxury Fashion Store</h3>
+            <p class="project-desc">Premium e-commerce platform with curated product galleries, cart management, and elegant checkout UX.</p>
+            <div class="project-footer">
+              <a href="https://weblynx-projects.github.io/E-commerce/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">04</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card" data-category="fullstack" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/pjm/1.png" alt="Project Management" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://weblynx-projects.github.io/project-management/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Weblynx-projects/project-management" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">SaaS</span>
+            </div>
+            <h3 class="project-title">Project Management Tool</h3>
+            <p class="project-desc">Collaborative kanban-style workspace with task assignments, progress tracking, and team communication features.</p>
+            <div class="project-footer">
+              <a href="https://weblynx-projects.github.io/project-management/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">05</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card" data-category="mobile fullstack" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/health/4.png" alt="Health App" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://weblynx-projects.github.io/Health-app/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Weblynx-projects/Health-app" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Health</span>
+            </div>
+            <h3 class="project-title">Health &amp; Wellness App</h3>
+            <p class="project-desc">Cross-platform health tracker with personalized recommendations, workout logging, and nutrition insights.</p>
+            <div class="project-footer">
+              <a href="https://weblynx-projects.github.io/Health-app/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">06</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7 -->
+        <article class="project-card featured" data-category="ai fullstack" data-aos="fade-up" data-aos-delay="50">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/news/Screenshot 2026-01-25 103015.png" alt="NewsHub" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://www.newshubb.site/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Chad96/NewsHub.git" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+            <div class="featured-badge">Live Site</div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">API</span>
+              <span class="tag">News</span>
+            </div>
+            <h3 class="project-title">NewsHubb</h3>
+            <p class="project-desc">Global news aggregation platform pulling real-time headlines from multiple sources and countries via a custom API.</p>
+            <div class="project-footer">
+              <a href="https://www.newshubb.site/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">07</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 8 -->
+        <article class="project-card" data-category="ai react" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-image">
+            <img src="https://final-portfolio-online.vercel.app/images/Ai/1.png" alt="AI Startup" loading="lazy" />
+            <div class="project-overlay">
+              <div class="overlay-links">
+                <a href="https://weblynx-projects.github.io/AI-project/" target="_blank" class="overlay-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/Weblynx-projects/AI-project" target="_blank" class="overlay-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">AI</span>
+              <span class="tag">Landing Page</span>
+            </div>
+            <h3 class="project-title">AI Startup Launch</h3>
+            <p class="project-desc">High-converting AI startup landing page that generated 10,000+ leads through compelling UI and persuasive copywriting.</p>
+            <div class="project-footer">
+              <a href="https://weblynx-projects.github.io/AI-project/" target="_blank" class="project-link">
+                View Project <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="project-number">08</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════ -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">03 — Experience</span>
+        <h2 class="section-title">The Journey<br/>So Far</h2>
+      </div>
+
+      <div class="exp-layout">
+        <!-- Timeline -->
+        <div class="timeline" data-aos="fade-right">
+          <div class="timeline-item active" data-index="0">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Apr 2025 — Present</span>
+              <h3 class="timeline-role">Software Engineer</h3>
+              <span class="timeline-company">Talent Match Africa (TMA) · 3 roles</span>
+            </div>
+          </div>
+          <div class="timeline-item" data-index="1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Dec 2024 — Apr 2025</span>
+              <h3 class="timeline-role">Software Developer</h3>
+              <span class="timeline-company">CAPACITI / UVUAFRICA</span>
+            </div>
+          </div>
+          <div class="timeline-item" data-index="2">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Apr 2024 — Dec 2024</span>
+              <h3 class="timeline-role">Web &amp; Mobile App Developer Trainee</h3>
+              <span class="timeline-company">mLab Southern Africa</span>
+            </div>
+          </div>
+          <div class="timeline-item" data-index="3">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Oct 2023 — Oct 2024</span>
+              <h3 class="timeline-role">Software Engineering</h3>
+              <span class="timeline-company">ALX Africa (Johannesburg Hub)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail panel -->
+        <div class="exp-detail" data-aos="fade-left">
+          <div class="exp-panel active" data-index="0">
+            <div class="exp-panel-header">
+              <span class="exp-type">Consulting · 3 Placements</span>
+              <span class="exp-period">Apr 2025 — Present</span>
+            </div>
+            <h3>Software Engineer</h3>
+            <p class="exp-company-full">Talent Match Africa (TMA) — Consulting · Johannesburg</p>
+            <p class="exp-desc">TMA is a consulting firm that places engineers at client companies. Across three client engagements I've built full-stack applications, automated business workflows, and developed AI-driven process tooling.</p>
+
+            <div class="tma-roles">
+
+              <div class="tma-role">
+                <div class="tma-role-top">
+                  <span class="tma-role-badge tma-current">Current</span>
+                  <div class="tma-role-info">
+                    <span class="tma-role-title">AI Process Assistant</span>
+                    <span class="tma-role-client">
+                      <i class="fas fa-building"></i> MBody AI
+                      <span class="via-tag">via TMA</span>
+                      <span class="tma-location"><i class="fas fa-location-dot"></i> USA</span>
+                    </span>
+                  </div>
+                </div>
+                <p class="tma-role-desc">Build and integrate AI-driven process automation tools that streamline internal workflows and enhance operational efficiency. Work closely with the MBody AI team to design intelligent assistants and automated pipelines.</p>
+                <div class="exp-tech">
+                  <span class="pill">Code</span>
+                  <span class="pill">Claude AI</span>
+                  <span class="pill">AI / LLMs</span>
+                  <span class="pill">Process Automation</span>
+                  <span class="pill">APIs</span>
+                </div>
+              </div>
+
+              <div class="tma-role">
+                <div class="tma-role-top">
+                  <div class="tma-role-info">
+                    <span class="tma-role-title">Automation &amp; Integrations Engineer</span>
+                    <span class="tma-role-client">
+                      <i class="fas fa-building"></i> Nexa-tech Solutions
+                      <span class="via-tag">via TMA</span>
+                      <span class="tma-location"><i class="fas fa-location-dot"></i> Australia</span>
+                    </span>
+                    <span class="tma-role-period"><i class="fas fa-calendar-alt"></i> Jun 2025 — Jan 2026</span>
+                  </div>
+                </div>
+                <p class="tma-role-desc">Designed and implemented automated workflows and system integrations connecting disparate platforms across the Nexa-tech product suite, significantly reducing manual overhead and improving data flow reliability.</p>
+                <div class="exp-tech">
+                  <span class="pill">Node.js</span>
+                  <span class="pill">Integrations</span>
+                  <span class="pill">Automation</span>
+                  <span class="pill">REST APIs</span>
+                  <span class="pill">Webhooks</span>
+                </div>
+              </div>
+
+              <div class="tma-role">
+                <div class="tma-role-top">
+                  <span class="tma-role-badge tma-current">Current</span>
+                  <div class="tma-role-info">
+                    <span class="tma-role-title">Software Engineer</span>
+                    <span class="tma-role-client">
+                      <i class="fas fa-building"></i> Talent Match Africa
+                      <span class="tma-location"><i class="fas fa-location-dot"></i> Johannesburg</span>
+                    </span>
+                  </div>
+                </div>
+                <p class="tma-role-desc">Core engineering role — build and support production software applications, collaborate with cross-functional teams, identify and resolve complex bugs, and deliver scalable, intuitive user experiences at scale.</p>
+                <div class="exp-tech">
+                  <span class="pill">MERN Stack</span>
+                  <span class="pill">React</span>
+                  <span class="pill">React Native</span>
+                  <span class="pill">Node.js</span>
+                  <span class="pill">HTML/CSS</span>
+                  <span class="pill">Git</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="exp-panel" data-index="1">
+            <div class="exp-panel-header">
+              <span class="exp-type">Graduate Program</span>
+              <span class="exp-period">Dec 2024 — Apr 2025</span>
+            </div>
+            <h3>Software Developer</h3>
+            <p class="exp-company-full">CAPACITI / UVUAFRICA · Johannesburg</p>
+            <p class="exp-desc">Designed, developed, and maintained software applications in a fast-paced graduate cohort. Collaborated with cross-functional teams, debugged and optimized code, and delivered scalable user-friendly solutions.</p>
+            <div class="exp-tech">
+              <span class="pill">Java</span>
+              <span class="pill">Python</span>
+              <span class="pill">React.js</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">GitHub</span>
+            </div>
+          </div>
+          <div class="exp-panel" data-index="2">
+            <div class="exp-panel-header">
+              <span class="exp-type">Internship</span>
+              <span class="exp-period">Apr 2024 — Dec 2024</span>
+            </div>
+            <h3>Web &amp; Mobile App Developer Trainee</h3>
+            <p class="exp-company-full">mLab Southern Africa · Johannesburg</p>
+            <p class="exp-desc">Specialized in React JS, React Native, and Node JS. Built dynamic web and mobile applications with a focus on front-end/back-end integration, responsive design, API development, and deployment of scalable apps.</p>
+            <div class="exp-tech">
+              <span class="pill">React</span>
+              <span class="pill">React Native</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">REST APIs</span>
+            </div>
+          </div>
+          <div class="exp-panel" data-index="3">
+            <div class="exp-panel-header">
+              <span class="exp-type">Johannesburg Hub</span>
+              <span class="exp-period">Oct 2023 — Oct 2024</span>
+            </div>
+            <h3>Software Engineering &amp; Front-End Development</h3>
+            <p class="exp-company-full">ALX Africa · Johannesburg Hub</p>
+            <p class="exp-desc">Completed an intensive 12-month software engineering program with a specialization in Front-End Development. Gained expertise in DevOps, low-level programming (C), higher-level programming (Python), full-stack web development, databases, and version control.</p>
+            <div class="exp-tech">
+              <span class="pill">Python</span>
+              <span class="pill">C</span>
+              <span class="pill">React</span>
+              <span class="pill">Front-End</span>
+              <span class="pill">DevOps</span>
+              <span class="pill">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="education-section" data-aos="fade-up">
+        <h3 class="sub-section-title">Education</h3>
+        <div class="edu-grid">
+          <div class="edu-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <span class="edu-status in-progress">In Progress</span>
+              <h4>BCom Information Technology</h4>
+              <p>MANCOSA · Johannesburg</p>
+              <p class="edu-modules">NQF Level 7 · 3 Years · 360 Credits · SAQA ID 71889</p>
+            </div>
+          </div>
+          <div class="edu-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="edu-icon">📜</div>
+            <div class="edu-info">
+              <span class="edu-status completed">Completed</span>
+              <h4>Information Technology</h4>
+              <p>MANCOSA · Oct 2023</p>
+              <p class="edu-modules">Major in Web and Software Development</p>
+            </div>
+          </div>
+          <div class="edu-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="edu-icon">🏆</div>
+            <div class="edu-info">
+              <span class="edu-status distinction">Specialization in Front-End Development</span>
+              <h4>Software Engineering</h4>
+              <p>ALX Africa · Oct 2023–2024</p>
+              <p class="edu-modules">Full-Stack · Python · DevOps · React · Node.js · Databases</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES / WHAT I DO
+  ═══════════════════════════════════════════ -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">04 — Services</span>
+        <h2 class="section-title">What I<br/>Bring to the Table</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>Responsive, performant websites — from elegant landing pages to complex web applications. Every pixel intentional, every interaction smooth.</p>
+          <div class="service-tags">
+            <span>React</span><span>Node.js</span><span>HTML/CSS</span>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Development</h3>
+          <p>Cross-platform iOS and Android apps built with React Native. Native performance, consistent experience, beautiful interfaces.</p>
+          <div class="service-tags">
+            <span>React Native</span><span>Expo</span><span>iOS/Android</span>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Full-Stack Solutions</h3>
+          <p>End-to-end product development — from database architecture to REST APIs to polished UIs. One engineer, complete ownership.</p>
+          <div class="service-tags">
+            <span>MERN Stack</span><span>Java</span><span>PostgreSQL</span>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Data &amp; Analytics</h3>
+          <p>Turn raw data into actionable dashboards. Real-time analytics, custom charts, and intelligent reporting systems.</p>
+          <div class="service-tags">
+            <span>Python</span><span>APIs</span><span>Dashboards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">05 — Contact</span>
+        <h2 class="section-title">Let's Build<br/>Something Great</h2>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info" data-aos="fade-right">
+          <p class="contact-lead">Have a project in mind? Looking to hire a full-stack engineer? Or just want to say hello? My inbox is always open.</p>
+
+          <div class="contact-details">
+            <a href="mailto:chadrack@example.com" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">chadrack.ndalamba@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://github.com/Chad96" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/Chad96</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Johannesburg, South Africa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/Chad96" target="_blank" class="social-btn" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chadrack-ndalamba" target="_blank" class="social-btn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank" class="social-btn" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" data-aos="fade-left" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+              <span class="form-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project collaboration, hire, etc." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+            <span class="form-error"></span>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="submit-btn">
+            <span class="btn-text">Send Message</span>
+            <i class="fas fa-paper-plane btn-icon"></i>
+            <span class="btn-success hidden"><i class="fas fa-check"></i> Sent!</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#home" class="footer-logo">
+          <span class="logo-bracket">&lt;</span>CN<span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Building the future, one commit at a time.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/Chad96" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/chadrack-ndalamba" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2025 Chadrack Ndalamba. Crafted with ❤️ &amp; ☕</span>
+        <a href="#home" class="back-to-top" aria-label="Back to top">
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
