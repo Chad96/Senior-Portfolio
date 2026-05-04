@@ -386,19 +386,23 @@ body.cursor-hover #cursor-follower { width: 56px; height: 56px; opacity: 0.3; }
   font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 8px 18px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  padding: 9px 20px;
   border-radius: 8px;
   transition: all var(--transition);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .btn-nav:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
-  box-shadow: 0 0 24px var(--accent-glow);
+  background: rgba(0, 212, 255, 0.18);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Hamburger */
@@ -1016,8 +1020,7 @@ body.cursor-hover #cursor-follower { width: 56px; height: 56px; opacity: 0.3; }
   50% { transform: translateY(-6px); }
 }
 
-/* Skills */
-.skills-section { }
+
 
 .skills-title {
   font-size: 1.1rem;

@@ -38,6 +38,7 @@ function bootApp() {
   initThemeToggle();
   initMobileMenu();
   initSectionObserver();
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -297,11 +298,11 @@ function initTyped() {
   if (!el) return;
 
   const phrases = [
-    'Full-Stack Software Engineer.',
-    'React & Node.js Developer.',
-    'Mobile App Developer.',
-    'AI Process Assistant.',
-    'Problem Solver.',
+    'A Full-Stack Software Engineer.',
+    'A React & Node.js Developer.',
+    'A Mobile App Developer.',
+    'An AI Process Assistant.',
+    'A Problem Solver.',
   ];
 
   let phraseIndex = 0;
@@ -483,27 +484,46 @@ function initContactForm() {
 
     if (!valid) return;
 
-    // Simulate send
+    // Submit to Formspree
     submitBtn.disabled = true;
     btnText.classList.add('hidden');
     btnIcon.classList.add('hidden');
     submitBtn.style.opacity = '0.8';
     submitBtn.style.cursor = 'wait';
 
-    // Fake network delay
-    setTimeout(() => {
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    })
+    .then(response => {
       submitBtn.style.opacity = '1';
-      btnSuccess.classList.remove('hidden');
-      form.reset();
+      submitBtn.style.cursor = '';
 
-      setTimeout(() => {
+      if (response.ok) {
+        btnSuccess.classList.remove('hidden');
+        form.reset();
+        setTimeout(() => {
+          btnText.classList.remove('hidden');
+          btnIcon.classList.remove('hidden');
+          btnSuccess.classList.add('hidden');
+          submitBtn.disabled = false;
+        }, 3500);
+      } else {
         btnText.classList.remove('hidden');
         btnIcon.classList.remove('hidden');
-        btnSuccess.classList.add('hidden');
         submitBtn.disabled = false;
-        submitBtn.style.cursor = '';
-      }, 3500);
-    }, 1400);
+        alert('Something went wrong. Please try again or email me directly.');
+      }
+    })
+    .catch(() => {
+      submitBtn.style.opacity = '1';
+      submitBtn.style.cursor = '';
+      btnText.classList.remove('hidden');
+      btnIcon.classList.remove('hidden');
+      submitBtn.disabled = false;
+      alert('Network error. Please check your connection and try again.');
+    });
   });
 }
 

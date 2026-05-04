@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chadrack Ndalamba — Full-Stack Engineer</title>
+  <title>Chadrack Ndalamba</title>
   <meta name="description" content="Full-Stack Software Engineer crafting premium digital experiences. React, Node.js, Java, Python." />
 
   <!-- Fonts -->
@@ -26,7 +26,7 @@
   ═══════════════════════════════════════════ -->
   <div id="loader">
     <div class="loader-inner">
-      <div class="loader-logo">Mr. Chad</div>
+      <div class="loader-logo">Mr.Chad</div>
       <div class="loader-bar"><span></span></div>
     </div>
   </div>
@@ -64,8 +64,8 @@
         <button id="theme-toggle" aria-label="Toggle theme">
           <i class="fas fa-sun" id="theme-icon"></i>
         </button>
-        <a href="https://final-portfolio-online.vercel.app/cv/latest.pdf" class="btn-nav" target="_blank">
-          Resume <i class="fas fa-arrow-up-right-from-square"></i>
+        <a href="https://final-portfolio-online.vercel.app/cv/latest.pdf" class="btn-nav" target="_blank" rel="noopener">
+          <i class="fas fa-file-arrow-down"></i> Resume
         </a>
         <button id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -129,7 +129,6 @@
 
       <!-- Typed role -->
       <div class="hero-role" data-aos="fade-up" data-aos-delay="460">
-        <span class="role-prefix">A </span>
         <span id="typed-text" class="typed"></span>
         <span class="cursor-blink">|</span>
       </div>
@@ -837,7 +836,7 @@
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
               <div>
                 <span class="contact-label">Email</span>
-                <span class="contact-value">chadrack.ndalamba@gmail.com</span>
+                <span class="contact-value">chadrackndalamba@gmail.com</span>
               </div>
             </a>
             <a href="https://github.com/Chad96" target="_blank" class="contact-item">
@@ -869,7 +868,7 @@
           </div>
         </div>
 
-        <form class="contact-form" data-aos="fade-left" id="contact-form" novalidate>
+        <form class="contact-form" data-aos="fade-left" id="contact-form" action="https://formspree.io/f/mnnjvgyo" method="POST" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -908,7 +907,7 @@
     <div class="container">
       <div class="footer-top">
         <a href="#home" class="footer-logo">
-          <span class="logo-bracket">&lt;</span>CN<span class="logo-bracket">/&gt;</span>
+          Mr.Chad
         </a>
         <p class="footer-tagline">Building the future, one commit at a time.</p>
         <div class="footer-socials">
@@ -918,7 +917,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="footer-copy">© 2025 Chadrack Ndalamba. Crafted with ❤️ &amp; ☕</span>
+        <span class="footer-copy">© <span id="copyright-year"></span> Chadrack Ndalamba. Crafted with ❤️ &amp; ☕</span>
         <a href="#home" class="back-to-top" aria-label="Back to top">
           <i class="fas fa-arrow-up"></i>
         </a>
@@ -929,5 +928,11 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="script.js"></script>
+
+  <!-- WhatsApp Widget -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+  <div style="position:fixed;bottom:20px;right:20px;z-index:9999;">
+    <div class="elfsight-app-0e2953bf-523e-4c5f-ae1b-1fa31fd00fde" data-elfsight-app-lazy></div>
+  </div>
 </body>
 </html>
