@@ -603,6 +603,56 @@ function initThemeToggle() {
 })();
 
 /* ═══════════════════════════════════════════════════════════════
-   GSAP — NOT REQUIRED, pure CSS + RAF instead.
-   Stagger hero elements via CSS animation-delay (see CSS).
+   SOCIAL LIFE — toggle + carousel
+   ═══════════════════════════════════════════════════════════════ */
+(function initSocialLife() {
+  const toggleBtn = document.getElementById('social-toggle');
+  const section   = document.getElementById('social-life');
+  if (!toggleBtn || !section) return;
+
+  /* ── Section reveal ── */
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = section.classList.toggle('open');
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+    if (isOpen) {
+      setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+  });
+
+  /* ── Carousel ── */
+  const track   = section.querySelector('.social-track');
+  const slides  = section.querySelectorAll('.social-slide');
+  const prevBtn = section.querySelector('.social-prev');
+  const nextBtn = section.querySelector('.social-next');
+  const dots    = section.querySelectorAll('.social-dot');
+  if (!track || !slides.length) return;
+
+  let current = 0;
+  const total = slides.length;
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  prevBtn.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+  nextBtn.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+  dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+
+  /* Touch/swipe support */
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const delta = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) delta > 0 ? goTo(Math.min(current + 1, total - 1)) : goTo(Math.max(current - 1, 0));
+  });
+
+  goTo(0);
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   END OF SCRIPT
    ═══════════════════════════════════════════════════════════════ */

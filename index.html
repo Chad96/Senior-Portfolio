@@ -818,6 +818,78 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       SOCIAL LIFE TOGGLE
+  ═══════════════════════════════════════════ -->
+  <div class="social-life-trigger">
+    <div class="container">
+      <button id="social-toggle" class="social-toggle-btn" aria-expanded="false">
+        <span class="social-toggle-left">
+          <i class="fas fa-camera-retro"></i>
+          <span>Life Outside Code</span>
+        </span>
+        <span class="social-toggle-right">
+          <span class="social-toggle-hint">Click to peek</span>
+          <i class="fas fa-chevron-down social-toggle-chevron"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SOCIAL LIFE SECTION (hidden by default)
+  ═══════════════════════════════════════════ -->
+  <section id="social-life" class="social-life-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Beyond the Screen</span>
+        <h2 class="section-title">Social<br/>Life</h2>
+      </div>
+
+      <div class="social-carousel" data-aos="fade-up" data-aos-delay="100">
+        <div class="social-track">
+
+          <!-- Slide 1 -->
+          <div class="social-slide">
+            <div class="social-photo-card">
+              <img src="images/social/1.jpg" alt="Out and about" loading="lazy" />
+            </div>
+            <div class="social-photo-card">
+              <img src="images/social/2.jpg" alt="Good times" loading="lazy" />
+            </div>
+            <div class="social-photo-card">
+              <img src="images/social/3.jpg" alt="Exploring" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="social-slide">
+            <div class="social-photo-card">
+              <img src="images/social/4.jpg" alt="Moments" loading="lazy" />
+            </div>
+            <div class="social-photo-card">
+              <img src="images/social/5.jpg" alt="Vibes" loading="lazy" />
+            </div>
+            <div class="social-photo-card">
+              <img src="images/social/6.jpg" alt="Memories" loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Arrows -->
+        <button class="social-nav social-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="social-nav social-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+
+        <!-- Dots -->
+        <div class="social-dots">
+          <span class="social-dot active" data-index="0"></span>
+          <span class="social-dot" data-index="1"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        CONTACT
   ═══════════════════════════════════════════ -->
   <section id="contact" class="section contact">
@@ -927,6 +999,8 @@
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
   <script src="script.js"></script>
 
   <!-- WhatsApp Widget -->
