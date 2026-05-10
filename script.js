@@ -654,5 +654,92 @@ function initThemeToggle() {
 })();
 
 /* ═══════════════════════════════════════════════════════════════
+   SHARED LIGHTBOX
+   ═══════════════════════════════════════════════════════════════ */
+const Lightbox = (function () {
+  const lightbox  = document.getElementById('cert-lightbox');
+  const lbImg     = document.getElementById('cert-lb-img');
+  const lbCurrent = document.getElementById('cert-lb-current');
+  const lbTotal   = document.getElementById('cert-lb-total');
+  if (!lightbox) return null;
+
+  const closeBtn = lightbox.querySelector('.cert-lb-close');
+  const prevBtn  = lightbox.querySelector('.cert-lb-prev');
+  const nextBtn  = lightbox.querySelector('.cert-lb-next');
+
+  let srcs    = [];
+  let current = 0;
+
+  function show(index) {
+    current = index;
+    lbImg.style.opacity = '0';
+    lbImg.src = srcs[current];
+    lbImg.onload = () => { lbImg.style.opacity = '1'; };
+    lbCurrent.textContent = current + 1;
+    lbTotal.textContent   = srcs.length;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === srcs.length - 1;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click',  () => { if (current > 0) show(current - 1); });
+  nextBtn.addEventListener('click',  () => { if (current < srcs.length - 1) show(current + 1); });
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft'  && current > 0)              show(current - 1);
+    if (e.key === 'ArrowRight' && current < srcs.length -1) show(current + 1);
+  });
+
+  return {
+    open(imageSrcs, index) {
+      srcs = imageSrcs;
+      show(index);
+    },
+  };
+})();
+
+/* Certifications toggle */
+(function () {
+  const toggleBtn = document.getElementById('cert-toggle');
+  const section   = document.getElementById('certifications');
+  if (!toggleBtn || !section) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = section.classList.toggle('cert-open');
+    section.classList.toggle('cert-hidden', !isOpen);
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+    if (isOpen) {
+      setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+  });
+})();
+
+/* Certifications lightbox */
+(function () {
+  if (!Lightbox) return;
+  const cards = Array.from(document.querySelectorAll('.cert-card'));
+  const srcs  = cards.map(c => c.dataset.src);
+  cards.forEach((card, i) => card.addEventListener('click', () => Lightbox.open(srcs, i)));
+})();
+
+/* Social Life photos */
+(function () {
+  if (!Lightbox) return;
+  const cards = Array.from(document.querySelectorAll('.social-photo-card'));
+  const srcs  = cards.map(c => c.dataset.src);
+  cards.forEach((card, i) => card.addEventListener('click', () => Lightbox.open(srcs, i)));
+})();
+
+/* ═══════════════════════════════════════════════════════════════
    END OF SCRIPT
    ═══════════════════════════════════════════════════════════════ */

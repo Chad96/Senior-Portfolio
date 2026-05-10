@@ -57,6 +57,7 @@
         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
         <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
         <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certifications</a></li>
         <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
       </ul>
 
@@ -824,12 +825,19 @@
     <div class="container">
       <button id="social-toggle" class="social-toggle-btn" aria-expanded="false">
         <span class="social-toggle-left">
-          <i class="fas fa-camera-retro"></i>
-          <span>Life Outside Code</span>
+          <span class="social-toggle-icon-box">
+            <i class="fas fa-images"></i>
+          </span>
+          <span class="social-toggle-text">
+            <span class="social-toggle-label">Life Outside Code</span>
+            <span class="social-toggle-sub">Candid moments &amp; good vibes</span>
+          </span>
         </span>
         <span class="social-toggle-right">
-          <span class="social-toggle-hint">Click to peek</span>
-          <i class="fas fa-chevron-down social-toggle-chevron"></i>
+          <span class="social-toggle-hint">Peek inside</span>
+          <span class="social-toggle-chevron-wrap">
+            <i class="fas fa-chevron-down social-toggle-chevron"></i>
+          </span>
         </span>
       </button>
     </div>
@@ -850,27 +858,33 @@
 
           <!-- Slide 1 -->
           <div class="social-slide">
-            <div class="social-photo-card">
+            <div class="social-photo-card" data-src="images/social/4.jpg">
               <img src="images/social/4.jpg" alt="Out and about" loading="lazy" />
+              <div class="social-photo-overlay"><i class="fas fa-expand-alt"></i></div>
             </div>
-            <div class="social-photo-card">
+            <div class="social-photo-card" data-src="images/social/2.png">
               <img src="images/social/2.png" alt="Good times" loading="lazy" />
+              <div class="social-photo-overlay"><i class="fas fa-expand-alt"></i></div>
             </div>
-            <div class="social-photo-card">
+            <div class="social-photo-card" data-src="images/social/3.jpg">
               <img src="images/social/3.jpg" alt="Exploring" loading="lazy" />
+              <div class="social-photo-overlay"><i class="fas fa-expand-alt"></i></div>
             </div>
           </div>
 
           <!-- Slide 2 -->
           <div class="social-slide">
-            <div class="social-photo-card">
+            <div class="social-photo-card" data-src="images/social/1.jpg">
               <img src="images/social/1.jpg" alt="Moments" loading="lazy" />
+              <div class="social-photo-overlay"><i class="fas fa-expand-alt"></i></div>
             </div>
-            <div class="social-photo-card">
+            <div class="social-photo-card" data-src="images/social/11.jpg">
               <img src="images/social/11.jpg" alt="Vibes" loading="lazy" />
+              <div class="social-photo-overlay"><i class="fas fa-expand-alt"></i></div>
             </div>
-            <div class="social-photo-card">
+            <div class="social-photo-card" data-src="images/social/6.jpg">
               <img src="images/social/6.jpg" alt="Memories" loading="lazy" />
+              <div class="social-photo-overlay"><i class="fas fa-expand-alt"></i></div>
             </div>
           </div>
 
@@ -890,12 +904,144 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       CERTIFICATIONS TOGGLE
+  ═══════════════════════════════════════════ -->
+  <div class="cert-life-trigger">
+    <div class="container">
+      <button id="cert-toggle" class="social-toggle-btn" aria-expanded="false">
+        <span class="social-toggle-left">
+          <span class="social-toggle-icon-box">
+            <i class="fas fa-certificate"></i>
+          </span>
+          <span class="social-toggle-text">
+            <span class="social-toggle-label">My Certifications</span>
+            <span class="social-toggle-sub">Credentials &amp; proof of learning</span>
+          </span>
+        </span>
+        <span class="social-toggle-right">
+          <span class="social-toggle-hint">View all</span>
+          <span class="social-toggle-chevron-wrap">
+            <i class="fas fa-chevron-down social-toggle-chevron"></i>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CERTIFICATIONS
+  ═══════════════════════════════════════════ -->
+  <section id="certifications" class="section certifications cert-hidden">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">05 — Certifications</span>
+        <h2 class="section-title">Proof of<br/>the Work</h2>
+      </div>
+
+      <div class="cert-grid">
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="0" data-src="images/certifications/1.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/1.jpg" alt="Certificate 1" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="50" data-src="images/certifications/2.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/2.jpg" alt="Certificate 2" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="100" data-src="images/certifications/3.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/3.jpg" alt="Certificate 3" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="150" data-src="images/certifications/4.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/4.jpg" alt="Certificate 4" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="200" data-src="images/certifications/5.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/5.jpg" alt="Certificate 5" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="250" data-src="images/certifications/6.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/6.jpg" alt="Certificate 6" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="300" data-src="images/certifications/7.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/7.jpg" alt="Certificate 7" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="350" data-src="images/certifications/8.jpg">
+          <div class="cert-img-wrap">
+            <img src="images/certifications/8.jpg" alt="Certificate 8" loading="lazy" />
+            <div class="cert-overlay">
+              <i class="fas fa-expand-alt"></i>
+              <span>View</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Lightbox -->
+  <div id="cert-lightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+    <button class="cert-lb-close" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="cert-lb-nav cert-lb-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <button class="cert-lb-nav cert-lb-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    <div class="cert-lb-inner">
+      <img id="cert-lb-img" src="" alt="Certificate" />
+      <p class="cert-lb-counter"><span id="cert-lb-current">1</span> / <span id="cert-lb-total">8</span></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
        CONTACT
   ═══════════════════════════════════════════ -->
   <section id="contact" class="section contact">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <span class="section-label">05 — Contact</span>
+        <span class="section-label">06 — Contact</span>
         <h2 class="section-title">Let's Build<br/>Something Great</h2>
       </div>
 
@@ -934,8 +1080,8 @@
             <a href="https://www.linkedin.com/in/chadrack-ndalamba" target="_blank" class="social-btn" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://twitter.com/" target="_blank" class="social-btn" aria-label="Twitter">
-              <i class="fab fa-x-twitter"></i>
+            <a href="https://www.tiktok.com/@chad_dev?lang=en-GB" target="_blank" class="social-btn" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
             </a>
           </div>
         </div>
@@ -985,7 +1131,7 @@
         <div class="footer-socials">
           <a href="https://github.com/Chad96" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/chadrack-ndalamba" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.tiktok.com/@chad_dev?lang=en-GB" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
       <div class="footer-bottom">
